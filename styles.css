@@ -1,0 +1,2108 @@
+/* ==========================================
+   GENERAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dorado: #d4aa58;
+    --dorado-claro: #f5dc91;
+    --blanco: #ffffff;
+    --gris: #aaa6a0;
+    --oscuro: #070812;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #03040d;
+    color: white;
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+.oculto {
+    display: none !important;
+}
+
+
+/* ==========================================
+   UNIVERSO GLOBAL
+========================================== */
+
+.universo-global {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(74, 83, 255, .25),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(164, 78, 255, .22),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 50% 85%,
+            rgba(36, 125, 255, .15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #02030b,
+            #07091b 50%,
+            #02030a
+        );
+}
+
+
+/* ESTRELLAS */
+
+.estrellas {
+    position: absolute;
+    inset: -100px;
+
+    background-image:
+        radial-gradient(
+            #fff 1px,
+            transparent 1px
+        );
+
+    background-repeat: repeat;
+
+    pointer-events: none;
+}
+
+.estrellas-1 {
+    background-size: 85px 85px;
+    opacity: .65;
+
+    animation:
+        moverEstrellas1 30s linear infinite;
+}
+
+.estrellas-2 {
+    background-size: 135px 135px;
+
+    background-position:
+        45px 70px;
+
+    opacity: .35;
+
+    animation:
+        moverEstrellas2 45s linear infinite;
+}
+
+@keyframes moverEstrellas1 {
+
+    from {
+        transform:
+            translateY(0)
+            translateX(0);
+    }
+
+    to {
+        transform:
+            translateY(100px)
+            translateX(30px);
+    }
+
+}
+
+@keyframes moverEstrellas2 {
+
+    from {
+        transform:
+            translateY(0);
+    }
+
+    to {
+        transform:
+            translateY(140px);
+    }
+
+}
+
+
+/* NEBULOSAS */
+
+.nebulosa {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(75px);
+
+    animation:
+        flotarNebulosa
+        12s ease-in-out infinite alternate;
+}
+
+.nebulosa-1 {
+    width: 300px;
+    height: 300px;
+
+    left: -100px;
+    top: 5%;
+
+    background:
+        rgba(91, 93, 255, .19);
+}
+
+.nebulosa-2 {
+    width: 350px;
+    height: 350px;
+
+    right: -110px;
+    top: 35%;
+
+    background:
+        rgba(184, 75, 255, .13);
+
+    animation-delay: 2s;
+}
+
+.nebulosa-3 {
+    width: 300px;
+    height: 300px;
+
+    left: 30%;
+    bottom: -150px;
+
+    background:
+        rgba(46, 133, 255, .12);
+
+    animation-delay: 4s;
+}
+
+@keyframes flotarNebulosa {
+
+    from {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(25px, 20px)
+            scale(1.1);
+    }
+
+}
+
+
+/* ÓRBITAS */
+
+.orbita {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.055);
+
+    pointer-events: none;
+}
+
+.orbita-1 {
+    width: 280px;
+    height: 280px;
+
+    right: -60px;
+    top: 10%;
+
+    animation:
+        girar 25s linear infinite;
+}
+
+.orbita-2 {
+    width: 420px;
+    height: 420px;
+
+    left: -150px;
+    bottom: -130px;
+
+    border-color:
+        rgba(236, 208, 127, .07);
+
+    animation:
+        girar 35s linear reverse infinite;
+}
+
+@keyframes girar {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+/* ESTRELLA FUGAZ */
+
+.estrella-fugaz {
+    position: absolute;
+
+    width: 120px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.9)
+        );
+
+    transform:
+        rotate(-35deg);
+
+    animation:
+        fugaz 1.5s linear forwards;
+}
+
+@keyframes fugaz {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(0,0)
+            rotate(-35deg);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-500px,500px)
+            rotate(-35deg);
+    }
+
+}
+
+
+/* ==========================================
+   PANTALLAS
+========================================== */
+
+.pantalla {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    background:
+        rgba(1, 2, 10, .28);
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+}
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+.pantalla-login {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* FECHA UNIVERSO */
+
+.fecha-universo {
+    position: absolute;
+
+    z-index: 1;
+
+    top: 12%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    white-space: nowrap;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(38px, 11vw, 90px);
+
+    font-weight: 700;
+
+    letter-spacing: 7px;
+
+    color:
+        rgba(255,255,255,.13);
+
+    text-shadow:
+        0 0 20px
+        rgba(153,190,255,.22);
+
+    animation:
+        flotarFecha 5s
+        ease-in-out infinite;
+}
+
+.fecha-universo span {
+    display: inline-block;
+
+    animation:
+        moverNumero
+        2.7s
+        ease-in-out infinite;
+}
+
+.fecha-universo span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.fecha-universo span:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.fecha-universo span:nth-child(4) {
+    animation-delay: .45s;
+}
+
+.fecha-universo span:nth-child(5) {
+    animation-delay: .6s;
+}
+
+@keyframes flotarFecha {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-8px);
+    }
+
+}
+
+@keyframes moverNumero {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+
+}
+
+
+/* PANEL LOGIN */
+
+.login-panel {
+    position: relative;
+
+    z-index: 4;
+
+    width:
+        min(400px, 100%);
+
+    padding:
+        34px 27px 25px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,17,31,.87),
+            rgba(6,7,14,.83)
+        );
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.65),
+
+        inset 0 1px
+        rgba(255,255,255,.06);
+}
+
+
+/* CANDADO */
+
+.candado {
+    position: relative;
+
+    width: 56px;
+    height: 65px;
+
+    margin:
+        0 auto 18px;
+}
+
+.candado-arco {
+    width: 36px;
+    height: 32px;
+
+    margin: auto;
+
+    border:
+        3px solid
+        var(--dorado-claro);
+
+    border-bottom: none;
+
+    border-radius:
+        22px 22px 0 0;
+}
+
+.candado-cuerpo {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 54px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ead079,
+            #a97726
+        );
+
+    color: #2b1a00;
+
+    box-shadow:
+        0 10px 25px
+        rgba(216,164,59,.2);
+}
+
+
+/* LOGIN TEXTOS */
+
+.login-mini {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #a79575;
+}
+
+.login-panel h1 {
+    margin-top: 5px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(46px, 12vw, 63px);
+
+    font-weight: 400;
+
+    color: #f7dfa5;
+}
+
+.login-texto {
+    color: #aaa5a0;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 13px;
+}
+
+
+/* PASSWORD */
+
+.password-dots {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin:
+        28px 0 10px;
+}
+
+.password-dots span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    border:
+        1.5px solid
+        rgba(240,213,134,.55);
+
+    transition: .2s;
+}
+
+.password-dots span.lleno {
+    background:
+        var(--dorado-claro);
+
+    border-color:
+        var(--dorado-claro);
+
+    box-shadow:
+        0 0 15px
+        rgba(240,213,134,.5);
+}
+
+.password-dots.error {
+    animation:
+        error .35s ease;
+}
+
+@keyframes error {
+
+    25% {
+        transform:
+            translateX(-8px);
+    }
+
+    75% {
+        transform:
+            translateX(8px);
+    }
+
+}
+
+.mensaje-login {
+    height: 20px;
+
+    color: #ff9c9c;
+
+    font-size: 10px;
+}
+
+
+/* TECLADO */
+
+.teclado {
+    width:
+        min(300px, 100%);
+
+    margin: 5px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+}
+
+.tecla {
+    aspect-ratio: 1.5 / 1;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: .15s;
+}
+
+.tecla:active {
+    transform:
+        scale(.91);
+
+    background:
+        rgba(220,180,91,.18);
+}
+
+.tecla-especial {
+    color: #a99c83;
+
+    font-size: 15px;
+}
+
+.login-firma {
+    margin-top: 18px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    font-size: 11px;
+
+    color:
+        rgba(255,255,255,.35);
+}
+
+
+/* ==========================================
+   INICIO
+========================================== */
+
+.pantalla-inicio {
+    padding:
+        max(35px, env(safe-area-inset-top))
+        17px
+        50px;
+}
+
+.contenedor-inicio {
+    width:
+        min(540px, 100%);
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.corazon-principal {
+    color:
+        var(--dorado-claro);
+
+    font-size: 38px;
+
+    animation:
+        latido 2s infinite;
+}
+
+@keyframes latido {
+
+    50% {
+        transform:
+            scale(1.2);
+    }
+
+}
+
+.fecha-pequena {
+    margin-top: 8px;
+
+    color: #cfb166;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.contenedor-inicio h1 {
+    margin-top: 10px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(58px, 15vw, 86px);
+
+    line-height: .95;
+
+    text-shadow:
+        0 8px 30px
+        rgba(0,0,0,.5);
+}
+
+.nombres {
+    margin-top: 15px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    letter-spacing: 2px;
+
+    font-size: 19px;
+}
+
+.nombres span {
+    margin: 0 8px;
+
+    color:
+        var(--dorado-claro);
+}
+
+.mensaje-inicio {
+    width:
+        min(440px, 94%);
+
+    margin:
+        20px auto;
+
+    color: #c6c1bc;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* CONTADOR */
+
+.contador {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 8px;
+
+    margin: 25px 0 12px;
+}
+
+.contador-item {
+    padding: 15px 5px;
+
+    border:
+        1px solid
+        rgba(240,213,134,.15);
+
+    border-radius: 16px;
+
+    background:
+        rgba(8,10,27,.55);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.contador-item strong {
+    display: block;
+
+    color:
+        var(--dorado-claro);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+.contador-item span {
+    color: #777781;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.desde-fecha {
+    color: #898590;
+
+    font-size: 10px;
+
+    margin-bottom: 24px;
+}
+
+
+/* MENÚ */
+
+.menu-principal {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+.btn-menu {
+    width: 100%;
+
+    min-height: 72px;
+
+    display: grid;
+
+    grid-template-columns:
+        46px 1fr 25px;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        12px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,18,36,.8),
+            rgba(6,7,16,.78)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.btn-menu:active {
+    transform:
+        scale(.98);
+}
+
+.icono-menu {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(218,177,89,.1);
+
+    color:
+        var(--dorado-claro);
+
+    font-size: 21px;
+}
+
+.btn-menu strong {
+    display: block;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 16px;
+
+    font-weight: 500;
+}
+
+.btn-menu small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #88838c;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+}
+
+.flecha {
+    color: #ba9e5e;
+
+    font-size: 27px;
+}
+
+.btn-menu-amarillo {
+    border-color:
+        rgba(245,211,91,.23);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(88,72,17,.38),
+            rgba(12,12,20,.75)
+        );
+}
+
+.firma-inicio {
+    margin-top: 25px;
+
+    color: #91805c;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 22px;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 20;
+
+    display: grid;
+
+    grid-template-columns:
+        44px 1fr 44px;
+
+    gap: 10px;
+
+    align-items: center;
+
+    padding:
+        max(13px, env(safe-area-inset-top))
+        16px
+        12px;
+
+    background:
+        rgba(4,5,17,.78);
+
+    backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.05);
+}
+
+.header > div {
+    text-align: center;
+}
+
+.header small {
+    color: #a79265;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+.header h2 {
+    margin-top: 2px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 17px;
+
+    font-weight: 500;
+}
+
+.btn-volver,
+.btn-audio-mini {
+    width: 41px;
+    height: 41px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.btn-volver {
+    font-size: 27px;
+}
+
+.btn-audio-mini {
+    color:
+        var(--dorado-claro);
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   RECUERDOS
+========================================== */
+
+.contenido-recuerdos {
+    width:
+        min(650px,100%);
+
+    margin: auto;
+
+    padding:
+        28px 16px 60px;
+}
+
+.intro-seccion {
+    width:
+        min(440px,92%);
+
+    margin:
+        0 auto 25px;
+
+    text-align: center;
+
+    color: #aaa6ab;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* CARRUSEL */
+
+.carrusel {
+    position: relative;
+}
+
+.marco-foto {
+    position: relative;
+
+    height:
+        min(67vh,580px);
+
+    min-height: 420px;
+
+    padding: 10px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 25px;
+
+    background:
+        rgba(8,10,22,.7);
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.38);
+}
+
+.marco-foto img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.3);
+
+    transition: .35s;
+}
+
+.marco-foto.cambiando img {
+    opacity: .25;
+
+    transform:
+        scale(.98);
+}
+
+.texto-foto {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    padding:
+        45px 20px 18px;
+
+    text-align: left;
+
+    border-radius:
+        0 0 18px 18px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.9)
+        );
+}
+
+.texto-foto span {
+    color:
+        var(--dorado-claro);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.texto-foto p {
+    margin-top: 8px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.control {
+    position: absolute;
+
+    z-index: 8;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 43px;
+    height: 43px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.6);
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.control-izquierda {
+    left: 17px;
+}
+
+.control-derecha {
+    right: 17px;
+}
+
+
+/* INDICADORES */
+
+.indicadores {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: 17px 0;
+}
+
+.indicador {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 20px;
+
+    background: #494754;
+
+    transition: .3s;
+}
+
+.indicador.activo {
+    width: 22px;
+
+    background:
+        var(--dorado);
+}
+
+
+/* MINIATURAS */
+
+.miniaturas {
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    padding-bottom: 10px;
+}
+
+.miniaturas::-webkit-scrollbar {
+    display: none;
+}
+
+.miniaturas button {
+    flex:
+        0 0 65px;
+
+    width: 65px;
+    height: 65px;
+
+    padding: 3px;
+
+    overflow: hidden;
+
+    border:
+        2px solid transparent;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    opacity: .55;
+
+    cursor: pointer;
+}
+
+.miniaturas button.activa {
+    opacity: 1;
+
+    border-color:
+        var(--dorado);
+}
+
+.miniaturas img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+}
+
+
+/* MENSAJE RECUERDOS */
+
+.mensaje-recuerdos {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(240,213,134,.12);
+
+    border-radius: 20px;
+
+    background:
+        rgba(7,9,25,.55);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.mensaje-recuerdos span {
+    color:
+        var(--dorado-claro);
+
+    font-size: 30px;
+}
+
+.mensaje-recuerdos p {
+    margin-top: 8px;
+
+    color: #aaa6ad;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   CARTA
+========================================== */
+
+.contenedor-carta {
+    width:
+        min(680px,100%);
+
+    margin: auto;
+
+    padding:
+        35px 17px 70px;
+}
+
+.carta {
+    position: relative;
+
+    padding:
+        48px 34px;
+
+    color: #322810;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf0,
+            #f4e5b9
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.45);
+}
+
+.carta::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border:
+        1px solid
+        rgba(125,91,24,.15);
+
+    pointer-events: none;
+}
+
+.fecha-carta {
+    text-align: right;
+
+    color: #77643a;
+
+    font-size: 11px !important;
+}
+
+.corazon-carta {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #a97920;
+
+    font-size: 35px;
+}
+
+.carta h1 {
+    text-align: center;
+
+    margin:
+        5px 0 25px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 54px;
+
+    font-weight: 400;
+}
+
+.carta p {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 20px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+}
+
+.carta-destacada {
+    font-weight: 600;
+}
+
+.firma-carta {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 35px;
+
+    text-align: right;
+}
+
+.firma-carta small {
+    font-family:
+        "Playfair Display",
+        serif;
+}
+
+.firma-carta span {
+    display: block;
+
+    margin-top: 5px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 42px;
+}
+
+
+/* ==========================================
+   FLORES
+========================================== */
+
+.contenido-flores {
+    position: relative;
+
+    z-index: 3;
+
+    width:
+        min(650px,100%);
+
+    margin: auto;
+
+    padding:
+        45px 17px 80px;
+
+    text-align: center;
+}
+
+.fecha-flores {
+    color:
+        var(--dorado-claro);
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.contenido-flores > h1 {
+    margin-top: 12px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(48px,13vw,75px);
+
+    line-height: .95;
+}
+
+.contenido-flores > h1 span {
+    display: block;
+
+    margin-top: 16px;
+
+    color:
+        var(--dorado-claro);
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: .72em;
+
+    font-weight: 400;
+}
+
+
+/* RAMO */
+
+.ramo-real {
+    position: relative;
+
+    width:
+        min(390px,92%);
+
+    margin:
+        35px auto 25px;
+
+    padding: 10px;
+
+    border:
+        1px solid
+        rgba(255,225,130,.25);
+
+    border-radius: 26px;
+
+    background:
+        rgba(11,12,28,.5);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.35);
+}
+
+.ramo-real img {
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    width: 100%;
+
+    border-radius: 19px;
+}
+
+.resplandor-ramo {
+    position: absolute;
+
+    z-index: 1;
+
+    inset: -30px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,210,66,.22),
+            transparent 65%
+        );
+
+    animation:
+        pulsoRamo 3s infinite;
+}
+
+@keyframes pulsoRamo {
+
+    50% {
+        transform:
+            scale(1.08);
+
+        opacity: .6;
+    }
+
+}
+
+
+/* MENSAJE FLORES */
+
+.mensaje-flores {
+    padding:
+        30px 24px;
+
+    border:
+        1px solid
+        rgba(255,222,116,.14);
+
+    border-radius: 24px;
+
+    background:
+        rgba(9,10,26,.62);
+
+    backdrop-filter:
+        blur(17px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.25);
+}
+
+.mensaje-flores p {
+    margin-bottom: 17px;
+
+    color: #d1cdd1;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+.mensaje-flores strong {
+    display: block;
+
+    color:
+        var(--dorado-claro);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+/* FOTO ESPECIAL */
+
+.foto-especial {
+    position: relative;
+
+    height: 500px;
+
+    margin-top: 30px;
+
+    padding: 10px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 25px;
+
+    background:
+        rgba(8,10,26,.58);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.foto-especial img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+}
+
+.foto-especial::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    height: 45%;
+
+    border-radius:
+        0 0 18px 18px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.9)
+        );
+}
+
+.foto-especial > div {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 20px;
+    right: 20px;
+    bottom: 30px;
+
+    color: white;
+}
+
+.foto-especial small {
+    color:
+        var(--dorado-claro);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+.foto-especial p {
+    margin-top: 5px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 39px;
+}
+
+
+/* FINAL */
+
+.btn-final {
+    margin-top: 28px;
+
+    padding:
+        16px 27px;
+
+    border:
+        1px solid
+        rgba(245,220,145,.25);
+
+    border-radius: 50px;
+
+    background:
+        rgba(7,8,20,.75);
+
+    color:
+        var(--dorado-claro);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.sorpresa-final {
+    max-height: 0;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        .7s ease;
+}
+
+.sorpresa-final.visible {
+    max-height: 450px;
+
+    margin-top: 35px;
+
+    opacity: 1;
+}
+
+.sorpresa-final > span {
+    color:
+        var(--dorado-claro);
+
+    font-size: 50px;
+}
+
+.sorpresa-final h2 {
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 53px;
+
+    font-weight: 400;
+}
+
+.sorpresa-final p {
+    width:
+        min(430px,90%);
+
+    margin:
+        8px auto 15px;
+
+    color: #ccc7ce;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    line-height: 1.7;
+}
+
+.sorpresa-final small {
+    color:
+        var(--dorado-claro);
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 27px;
+}
+
+
+/* ==========================================
+   LLUVIA FLORES
+========================================== */
+
+.lluvia-flores {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.flor-caida {
+    position: absolute;
+
+    top: -60px;
+
+    opacity: .85;
+
+    animation:
+        caerFlor linear forwards;
+}
+
+@keyframes caerFlor {
+
+    to {
+        transform:
+            translateY(115vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* ==========================================
+   AUDIO
+========================================== */
+
+.btn-musica-global {
+    position: fixed;
+
+    z-index: 100;
+
+    right: 16px;
+
+    bottom:
+        max(16px,env(safe-area-inset-bottom));
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,225,132,.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            #eed275,
+            #ac7c2a
+        );
+
+    color: #281900;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    animation:
+        pulsoAudio 2s infinite;
+}
+
+@keyframes pulsoAudio {
+
+    50% {
+        box-shadow:
+            0 0 0 11px
+            rgba(238,210,117,0);
+    }
+
+}
+
+.btn-musica-global.pausada {
+    opacity: .65;
+
+    animation: none;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 600px) {
+
+    .pantalla-login {
+        padding: 15px;
+    }
+
+    .login-panel {
+        padding:
+            29px 22px 22px;
+    }
+
+    .fecha-universo {
+        top: 7%;
+
+        font-size: 37px;
+
+        letter-spacing: 4px;
+    }
+
+    .teclado {
+        gap: 9px;
+    }
+
+    .pantalla-inicio {
+        padding-top:
+            max(25px,env(safe-area-inset-top));
+    }
+
+    .contador-item strong {
+        font-size: 22px;
+    }
+
+    .marco-foto {
+        height: 62vh;
+
+        min-height: 420px;
+    }
+
+    .carta {
+        padding:
+            42px 24px;
+    }
+
+    .carta p {
+        font-size: 16px;
+    }
+
+    .foto-especial {
+        height: 480px;
+    }
+
+}
+
+
+@media (max-height: 720px) {
+
+    .login-panel {
+        transform:
+            scale(.9);
+    }
+
+    .fecha-universo {
+        top: 1%;
+    }
+
+    .login-panel h1 {
+        font-size: 44px;
+    }
+
+    .password-dots {
+        margin-top: 18px;
+    }
+
+    .tecla {
+        aspect-ratio:
+            1.75 / 1;
+    }
+
+}

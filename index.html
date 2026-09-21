@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#040615">
+
+    <title>Para Melva 💛</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- ==========================================
+         UNIVERSO GLOBAL
+    ========================================== -->
+
+    <div class="universo-global">
+
+        <div class="estrellas estrellas-1"></div>
+        <div class="estrellas estrellas-2"></div>
+
+        <div class="nebulosa nebulosa-1"></div>
+        <div class="nebulosa nebulosa-2"></div>
+        <div class="nebulosa nebulosa-3"></div>
+
+        <div class="orbita orbita-1"></div>
+        <div class="orbita orbita-2"></div>
+
+        <div id="estrellasFugaces"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         AUDIO
+    ========================================== -->
+
+    <audio
+        id="musicaFondo"
+        preload="auto"
+    >
+        <source
+            src="ssets/audio/nuestra-cancion.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- ==========================================
+         LOGIN
+    ========================================== -->
+
+    <section
+        id="pantallaLogin"
+        class="pantalla pantalla-login activa"
+    >
+
+        <div class="fecha-universo">
+
+            <span>21</span>
+            <span>/</span>
+            <span>08</span>
+            <span>/</span>
+            <span>26</span>
+
+        </div>
+
+
+        <div class="login-panel">
+
+            <div class="candado">
+
+                <div class="candado-arco"></div>
+
+                <div class="candado-cuerpo">
+                    ♥
+                </div>
+
+            </div>
+
+
+            <p class="login-mini">
+                UNA FECHA QUE NUNCA QUIERO OLVIDAR
+            </p>
+
+
+            <h1>
+                Feliz aniversario
+            </h1>
+
+
+            <p class="login-texto">
+                Ingresa nuestra fecha especial
+            </p>
+
+
+            <div
+                id="passwordDots"
+                class="password-dots"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <p
+                id="mensajeLogin"
+                class="mensaje-login"
+            ></p>
+
+
+            <div class="teclado">
+
+                <button class="tecla numero" data-num="1">1</button>
+                <button class="tecla numero" data-num="2">2</button>
+                <button class="tecla numero" data-num="3">3</button>
+
+                <button class="tecla numero" data-num="4">4</button>
+                <button class="tecla numero" data-num="5">5</button>
+                <button class="tecla numero" data-num="6">6</button>
+
+                <button class="tecla numero" data-num="7">7</button>
+                <button class="tecla numero" data-num="8">8</button>
+                <button class="tecla numero" data-num="9">9</button>
+
+                <button
+                    id="btnLimpiar"
+                    class="tecla tecla-especial"
+                >
+                    C
+                </button>
+
+                <button class="tecla numero" data-num="0">0</button>
+
+                <button
+                    id="btnBorrar"
+                    class="tecla tecla-especial"
+                >
+                    ⌫
+                </button>
+
+            </div>
+
+
+            <p class="login-firma">
+                Para Melva, con amor — Frank
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         INICIO
+    ========================================== -->
+
+    <section
+        id="pantallaInicio"
+        class="pantalla pantalla-inicio"
+    >
+
+        <div class="contenedor-inicio">
+
+            <div class="corazon-principal">
+                ♡
+            </div>
+
+
+            <p class="fecha-pequena">
+                21 • 09 • 2026
+            </p>
+
+
+            <h1>
+                Nuestro primer mes
+            </h1>
+
+
+            <div class="nombres">
+
+                Frank
+
+                <span>♡</span>
+
+                Melva
+
+            </div>
+
+
+            <p class="mensaje-inicio">
+
+                Hoy cumplimos nuestro primer mes juntos
+                y quería regalarte algo diferente,
+                porque te amo y te has convertido
+                en una persona muy importante para mí.
+
+            </p>
+
+
+            <!-- CONTADOR -->
+
+            <div class="contador">
+
+                <div class="contador-item">
+
+                    <strong id="dias">
+                        00
+                    </strong>
+
+                    <span>
+                        Días
+                    </span>
+
+                </div>
+
+
+                <div class="contador-item">
+
+                    <strong id="horas">
+                        00
+                    </strong>
+
+                    <span>
+                        Horas
+                    </span>
+
+                </div>
+
+
+                <div class="contador-item">
+
+                    <strong id="minutos">
+                        00
+                    </strong>
+
+                    <span>
+                        Min
+                    </span>
+
+                </div>
+
+
+                <div class="contador-item">
+
+                    <strong id="segundos">
+                        00
+                    </strong>
+
+                    <span>
+                        Seg
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="desde-fecha">
+                Desde el 21 de agosto de 2026 💛
+            </p>
+
+
+            <!-- MENÚ -->
+
+            <div class="menu-principal">
+
+                <button
+                    class="btn-menu"
+                    data-destino="pantallaRecuerdos"
+                >
+
+                    <span class="icono-menu">
+                        ▣
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Ver recuerdos
+                        </strong>
+
+                        <small>
+                            Algunas de nuestras fotos
+                        </small>
+
+                    </div>
+
+                    <span class="flecha">
+                        ›
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="btn-menu"
+                    data-destino="pantallaCarta"
+                >
+
+                    <span class="icono-menu">
+                        ♡
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Leer mi carta
+                        </strong>
+
+                        <small>
+                            Algo que quiero decirte
+                        </small>
+
+                    </div>
+
+                    <span class="flecha">
+                        ›
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="btn-menu btn-menu-amarillo"
+                    data-destino="pantallaFlores"
+                >
+
+                    <span class="icono-menu">
+                        🌻
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Tus flores amarillas
+                        </strong>
+
+                        <small>
+                            Un detalle especial para ti
+                        </small>
+
+                    </div>
+
+                    <span class="flecha">
+                        ›
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <p class="firma-inicio">
+                Hecho especialmente para ti
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         RECUERDOS
+    ========================================== -->
+
+    <section
+        id="pantallaRecuerdos"
+        class="pantalla pantalla-interna"
+    >
+
+        <header class="header">
+
+            <button class="btn-volver">
+                ‹
+            </button>
+
+            <div>
+
+                <small>
+                    FRANK & MELVA
+                </small>
+
+                <h2>
+                    Nuestros recuerdos
+                </h2>
+
+            </div>
+
+
+            <button class="btn-audio-mini">
+                ♪
+            </button>
+
+        </header>
+
+
+        <main class="contenido-recuerdos">
+
+            <p class="intro-seccion">
+
+                Son apenas algunos momentos,
+                pero cada uno ya significa mucho para mí.
+
+            </p>
+
+
+            <div class="carrusel">
+
+                <button
+                    id="fotoAnterior"
+                    class="control control-izquierda"
+                >
+                    ‹
+                </button>
+
+
+                <div class="marco-foto">
+
+                    <img
+                        id="imagenCarrusel"
+                        src="ssets/images/foto1.png"
+                        alt="Frank y Melva"
+                    >
+
+
+                    <div class="texto-foto">
+
+                        <span id="numeroFoto">
+                            01 / 07
+                        </span>
+
+
+                        <p id="fraseFoto">
+                            Todo recuerdo contigo tiene algo especial.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="fotoSiguiente"
+                    class="control control-derecha"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <div
+                id="indicadoresFotos"
+                class="indicadores"
+            ></div>
+
+
+            <div class="miniaturas">
+
+                <button data-foto="0">
+                    <img src="ssets/images/foto1.png">
+                </button>
+
+                <button data-foto="1">
+                    <img src="ssets/images/foto2.png">
+                </button>
+
+                <button data-foto="2">
+                    <img src="ssets/images/foto3.png">
+                </button>
+
+                <button data-foto="3">
+                    <img src="ssets/images/foto4.png">
+                </button>
+
+                <button data-foto="4">
+                    <img src="ssets/images/foto5.png">
+                </button>
+
+                <button data-foto="5">
+                    <img src="ssets/images/foto6.png">
+                </button>
+
+                <button data-foto="6">
+                    <img src="ssets/images/foto7.png">
+                </button>
+
+            </div>
+
+
+            <div class="mensaje-recuerdos">
+
+                <span>
+                    ♡
+                </span>
+
+                <p>
+                    Quiero seguir llenando esta galería
+                    de muchos recuerdos más contigo.
+                </p>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- ==========================================
+         CARTA
+    ========================================== -->
+
+    <section
+        id="pantallaCarta"
+        class="pantalla pantalla-interna"
+    >
+
+        <header class="header">
+
+            <button class="btn-volver">
+                ‹
+            </button>
+
+            <div>
+
+                <small>
+                    PARA MELVA
+                </small>
+
+                <h2>
+                    Una carta para ti
+                </h2>
+
+            </div>
+
+
+            <button class="btn-audio-mini">
+                ♪
+            </button>
+
+        </header>
+
+
+        <main class="contenedor-carta">
+
+            <article class="carta">
+
+                <p class="fecha-carta">
+                    21 de septiembre de 2026
+                </p>
+
+
+                <div class="corazon-carta">
+                    ♡
+                </div>
+
+
+                <h1>
+                    Mi amor,
+                </h1>
+
+
+                <p>
+
+                    Hoy se cumple exactamente un mes
+                    desde aquel 21 de agosto
+                    en el que comenzó lo nuestro.
+
+                </p>
+
+
+                <p>
+
+                    Tal vez para otras personas
+                    un mes pueda parecer poco tiempo,
+                    pero para mí ha sido suficiente
+                    para darme cuenta de lo importante
+                    que te has vuelto en mi vida.
+
+                </p>
+
+
+                <p>
+
+                    En este tiempo hemos compartido
+                    conversaciones, risas,
+                    momentos bonitos
+                    y pequeñas cosas que poco a poco
+                    se han convertido en recuerdos
+                    que valoro muchísimo.
+
+                </p>
+
+
+                <p>
+
+                    Me gusta saber que estás ahí.
+                    Me gusta hablar contigo,
+                    verte sonreír,
+                    escucharte
+                    y descubrir poco a poco
+                    más de ti.
+
+                </p>
+
+
+                <p>
+
+                    No quiero prometerte
+                    una relación perfecta,
+                    porque sé que ninguna lo es.
+                    Pero sí quiero seguir eligiéndote,
+                    aprender contigo,
+                    apoyarnos
+                    y crear muchos recuerdos más
+                    a tu lado.
+
+                </p>
+
+
+                <p>
+
+                    Gracias por este primer mes.
+                    Gracias por llegar a mi vida
+                    y convertirte en alguien
+                    tan importante para mí.
+
+                </p>
+
+
+                <p class="carta-destacada">
+
+                    Te amo mucho, Melva,
+                    y espero que este sea solamente
+                    el primero de muchísimos meses
+                    más juntos.
+
+                </p>
+
+
+                <div class="firma-carta">
+
+                    <small>
+                        Con todo mi amor,
+                    </small>
+
+                    <span>
+                        Frank Polo
+                    </span>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </section>
+
+
+    <!-- ==========================================
+         FLORES
+    ========================================== -->
+
+    <section
+        id="pantallaFlores"
+        class="pantalla pantalla-interna"
+    >
+
+        <div
+            id="lluviaFlores"
+            class="lluvia-flores"
+        ></div>
+
+
+        <header class="header">
+
+            <button class="btn-volver">
+                ‹
+            </button>
+
+            <div>
+
+                <small>
+                    21 DE SEPTIEMBRE
+                </small>
+
+                <h2>
+                    Para ti 💛
+                </h2>
+
+            </div>
+
+
+            <button class="btn-audio-mini">
+                ♪
+            </button>
+
+        </header>
+
+
+        <main class="contenido-flores">
+
+            <p class="fecha-flores">
+                21 • 09 • 2026
+            </p>
+
+
+            <h1>
+                Flores amarillas
+
+                <span>
+                    para ti
+                </span>
+
+            </h1>
+
+
+            <!-- RAMO REAL -->
+
+            <div class="ramo-real">
+
+                <div class="resplandor-ramo"></div>
+
+                <img
+                    src="ssets/images/foto8.png"
+                    alt="Ramo de flores amarillas"
+                >
+
+            </div>
+
+
+            <div class="mensaje-flores">
+
+                <p>
+
+                    Pero hoy no solamente
+                    cumplimos nuestro primer mes...
+
+                </p>
+
+
+                <p>
+
+                    También es 21 de septiembre,
+                    y quería encontrar
+                    una forma diferente
+                    de regalarte
+                    tus flores amarillas.
+
+                </p>
+
+
+                <p>
+
+                    Estas flores son para ti, Melva.
+
+                    Por tu sonrisa,
+                    por tu forma de ser,
+                    por cada momento bonito
+                    que compartimos
+                    y porque en muy poco tiempo
+                    te has convertido
+                    en alguien muy importante
+                    para mí.
+
+                </p>
+
+
+                <strong>
+
+                    Puede que estas flores
+                    sean virtuales,
+                    pero el sentimiento
+                    con el que te las regalo
+                    es completamente real. 💛
+
+                </strong>
+
+            </div>
+
+
+            <div class="foto-especial">
+
+                <img
+                    src="ssets/images/foto7.png"
+                    alt="Frank y Melva"
+                >
+
+                <div>
+
+                    <small>
+                        PARA TI
+                    </small>
+
+                    <p>
+                        Feliz primer mes,
+                        mi amor.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="btnSorpresaFinal"
+                class="btn-final"
+            >
+
+                Tengo algo más que decirte
+
+            </button>
+
+
+            <div
+                id="sorpresaFinal"
+                class="sorpresa-final"
+            >
+
+                <span>
+                    ♡
+                </span>
+
+                <h2>
+                    Te amo, Melva.
+                </h2>
+
+                <p>
+
+                    Gracias por este primer mes.
+                    Espero que sea solamente
+                    el primero de muchos más.
+
+                </p>
+
+                <small>
+                    — Frank Polo
+                </small>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- ==========================================
+         BOTÓN MÚSICA
+    ========================================== -->
+
+    <button
+        id="btnMusicaGlobal"
+        class="btn-musica-global oculto"
+    >
+        ♪
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
